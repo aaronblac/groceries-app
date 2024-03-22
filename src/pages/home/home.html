@@ -5,8 +5,80 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to the Grocery App!</h2>
-  <p>
-    We will be filling items into this Grocery App!
-  </p>
+  <ion-content class="outer-content">
+    <ion-list id="groceryList">
+      <ion-item-sliding>
+        <ion-item>
+          <h2>Milk</h2>
+          <p>1</p>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="primary" icon-start (click)="handleRemoveItem($event)">
+            <ion-icon name="trash"></ion-icon>
+            Done
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+      <ion-item-sliding>
+        <ion-item>
+          <h2>Bread</h2>
+          <p>2</p>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="primary" icon-start (click)="handleRemoveItem($event)">
+            <ion-icon name="trash"></ion-icon>
+            Done
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+      <ion-item-sliding>
+        <ion-item>
+          <h2>Apples</h2>
+          <p>8</p>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="primary" icon-start (click)="handleRemoveItem($event)">
+            <ion-icon name="trash"></ion-icon>
+            Done
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+      <ion-item-sliding>
+        <ion-item>
+          <h2>Butter</h2>
+          <p>1</p>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="primary" icon-start (click)="handleRemoveItem($event)">
+            <ion-icon name="trash"></ion-icon>
+            Done
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+      <ion-item-sliding>
+        <ion-item>
+          <h2>Steak</h2>
+          <p>2</p>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="primary" icon-start (click)="handleRemoveItem($event)">
+            <ion-icon name="trash"></ion-icon>
+            Done
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+      <ion-item-sliding>
+        <ion-item>
+          <h2>Cereal</h2>
+          <p>2</p>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="primary" icon-start (click)="handleRemoveItem($event)">
+            <ion-icon name="trash"></ion-icon>
+            Done
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-content>
 </ion-content>

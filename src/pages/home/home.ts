@@ -8,6 +8,13 @@ import { NavController } from 'ionic-angular';
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
+  }
+
+  handleRemoveItem(event: Event){
+    const item = (event.target as HTMLElement).closest('ion-item-sliding');
+    if (item){
+      item.remove();
+    }
 
   }
 
