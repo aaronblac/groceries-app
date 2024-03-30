@@ -80,6 +80,11 @@ export class HomePage {
           handler: item => {
             console.log('Saved clicked');
             this.items.push(item);
+            const toast = this.toastCtrl.create({
+              message: `${item.name} was added to the list`,
+              duration: 3000
+            });
+            toast.present()
           }
         }
       ]

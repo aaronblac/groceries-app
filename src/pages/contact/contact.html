@@ -8,10 +8,21 @@
 
 <ion-content>
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
+    <ion-list-header>{{ formMessage }}</ion-list-header>
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      Contact will be here
+      <ion-label stacked>Name</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Message</ion-label>
+      <ion-textarea type="text"></ion-textarea>
     </ion-item>
   </ion-list>
+  <div padding>
+    <button block (click)="handleFormSend()">Send</button>
+  </div>
 </ion-content>

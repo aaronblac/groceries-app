@@ -7,6 +7,7 @@ import { NavController } from 'ionic-angular';
 })
 export class ContactPage {
 
+  formMessage = "Contact Us!"
   constructor(public navCtrl: NavController) {
 
   }
