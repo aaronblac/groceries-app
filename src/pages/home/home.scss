@@ -1,3 +1,10 @@
 page-home {
 
+  h3.no-item{
+    color:map-get($colors, 'primary' );
+  }
+
+  button{
+    max-width:9rem;
+  }
 }
