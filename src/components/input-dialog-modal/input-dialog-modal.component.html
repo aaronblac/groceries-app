@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ item ? 'Edit Item' : 'Add to Grocery List' }}</ion-title>
+    <ion-buttons end>
+      <button style="width:4rem;" ion-button icon-only (click)="closeModal()">
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Name:</ion-label>
+      <ion-input [(ngModel)]="item.name" placeholder=""></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Quantity</ion-label>
+      <ion-select [(ngModel)]="item.quantity" placeholder="Quantity">
+        <ion-option *ngFor="let i of quantityOptions" [value]="i">{{ i }}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-buttons text-center>
+    <button ion-button (click)="closeModal()">Cancel</button>
+    <button ion-button (click)="saveItem()">Save</button>
+  </ion-buttons>
+</ion-content>

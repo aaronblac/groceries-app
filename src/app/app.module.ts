@@ -11,6 +11,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GroceriesServiceProvider } from '../providers/groceries-service/groceries-service';
+import { InputDialogServiceProvider } from '../providers/input-dialog-service/input-dialog-service';
+import { InputDialogModal } from '../components/input-dialog-modal/input-dialog-modal.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { GroceriesServiceProvider } from '../providers/groceries-service/groceri
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    InputDialogModal
   ],
   imports: [
     BrowserModule,
@@ -30,14 +33,16 @@ import { GroceriesServiceProvider } from '../providers/groceries-service/groceri
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    InputDialogModal
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GroceriesServiceProvider,
-    GroceriesServiceProvider
+    GroceriesServiceProvider,
+    InputDialogServiceProvider
   ]
 })
 export class AppModule {}
