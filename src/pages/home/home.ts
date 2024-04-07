@@ -19,7 +19,6 @@ export class HomePage {
 
   handleRemoveItem(item, index){
     if (item){
-
       this.dataService.removeItem(index);
       const toast = this.toastCtrl.create({
         message: `${item.name} was removed from the list`,
