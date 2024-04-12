@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, ToastController, AlertController } from 'ionic-angular';
 import { GroceriesServiceProvider } from '../../providers/groceries-service/groceries-service';
 import { InputDialogServiceProvider } from '../../providers/input-dialog-service/input-dialog-service';
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 @Component({
   selector: 'page-home',
@@ -11,7 +12,7 @@ export class HomePage {
 
   title = "Grocery List"
 
-  constructor(public navCtrl: NavController, public toastCtrl: ToastController, public alertCtrl: AlertController, public dataService: GroceriesServiceProvider, public inputDialogService: InputDialogServiceProvider) {
+  constructor(public navCtrl: NavController, public toastCtrl: ToastController, public alertCtrl: AlertController, public dataService: GroceriesServiceProvider, public inputDialogService: InputDialogServiceProvider, public socialSharing: SocialSharing) {
   }
 
   loadItems(){
@@ -26,6 +27,25 @@ export class HomePage {
         duration: 3000
       });
       toast.present()
+    }
+
+  }
+
+  handleShareItem(item,index){
+    if (item){
+      const toast = this.toastCtrl.create({
+        message: `Sharing Item - ${index}` ,
+        duration: 3000
+      });
+      toast.present()
+
+      let message = ` Shared Item: ${item.name} Quantity; ${item.quantity} from Groceries App`
+      let subject = `Shared via groceries app `
+      this.socialSharing.share().then(() => {
+         console.log("Shared successfully!")
+      }).catch((error) => {
+        console.error("error while sharing",error)
+      });
     }
 
   }
