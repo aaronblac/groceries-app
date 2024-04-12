@@ -41,7 +41,7 @@ export class HomePage {
 
       let message = ` Shared Item: ${item.name} Quantity; ${item.quantity} from Groceries App`
       let subject = `Shared via groceries app `
-      this.socialSharing.share().then(() => {
+      this.socialSharing.share(subject, message).then(() => {
          console.log("Shared successfully!")
       }).catch((error) => {
         console.error("error while sharing",error)
