@@ -23,14 +23,19 @@ export class InputDialogServiceProvider {
       if (item) {
         if (index !== undefined) {
           this.dataService.editItem(item, index);
+          const toast = this.toastCtrl.create({
+            message: `Your item has been edited`,
+            duration: 3000
+          });
+          toast.present();
         } else {
           this.dataService.addItem(item);
+          const toast = this.toastCtrl.create({
+            message: `${item.name} was added to the list`,
+            duration: 3000
+          });
+          toast.present();
         }
-        const toast = this.toastCtrl.create({
-          message: item ? `Your item has been edited` : `${item.name} was added to the list`,
-          duration: 3000
-        });
-        toast.present();
       }
     });
 
