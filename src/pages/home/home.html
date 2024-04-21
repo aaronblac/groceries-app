@@ -5,10 +5,10 @@
 </ion-header>
 
 <ion-content padding>
-  <h3 class="no-item" *ngIf="loadItems().length === 0" text-center margin-vertical>No item available on the list</h3>
+  <h3 class="no-item" *ngIf="items.length === 0" text-center margin-vertical>No item available on the list</h3>
   <ion-content class="outer-content">
     <ion-list id="groceryList">
-      <ion-item-sliding *ngFor="let item of loadItems(); let i = index">
+      <ion-item-sliding *ngFor="let item of items; let i = index">
         <ion-item>
           <h2>{{item.name}}</h2>
           <p>{{item.quantity}}</p>

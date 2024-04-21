@@ -22,7 +22,7 @@ export class InputDialogServiceProvider {
     modal.onDidDismiss((item) => {
       if (item) {
         if (index !== undefined) {
-          this.dataService.editItem(item, index);
+          this.dataService.editItem(item);
           const toast = this.toastCtrl.create({
             message: `Your item has been edited`,
             duration: 3000

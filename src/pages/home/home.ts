@@ -10,18 +10,32 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 })
 export class HomePage {
 
-  title = "Grocery List"
+  title = "Grocery List";
+
+  items = [];
+  errorMessage: string;
 
   constructor(public navCtrl: NavController, public toastCtrl: ToastController, public alertCtrl: AlertController, public dataService: GroceriesServiceProvider, public inputDialogService: InputDialogServiceProvider, public socialSharing: SocialSharing) {
+    dataService.dataChanged$.subscribe((dataChanged: boolean)=>{
+      this.loadItems();
+    });
+  }
+
+  ionViewDidLoad(){
+    this.loadItems();
   }
 
   loadItems(){
-    return this.dataService.getItems();
+    this.dataService.getItems()
+      .subscribe(
+        items => this.items = items,
+        error => this.errorMessage = <any>error
+      );
   }
 
-  handleRemoveItem(item, index){
+  handleRemoveItem(item){
     if (item){
-      this.dataService.removeItem(index);
+      this.dataService.removeItem(item._id);
       const toast = this.toastCtrl.create({
         message: `${item.name} was removed from the list`,
         duration: 3000
@@ -31,10 +45,10 @@ export class HomePage {
 
   }
 
-  handleShareItem(item,index){
+  handleShareItem(item){
     if (item){
       const toast = this.toastCtrl.create({
-        message: `Sharing Item - ${index}` ,
+        message: `Sharing Item - ${item._id}` ,
         duration: 3000
       });
       toast.present()
@@ -50,9 +64,9 @@ export class HomePage {
 
   }
 
-  handleEditItem(item, index){
+  handleEditItem(item,index){
     if (item){
-      console.log("Edit item", item, index);
+      console.log("Edit item", item, item._id);
 
       const toast = this.toastCtrl.create({
         message: `Editing item - ${item.name}`,
