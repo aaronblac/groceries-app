@@ -63,5 +63,8 @@
     "platforms": [
       "ios"
     ]
+  },
+  "engines": {
+    "node": "9.11.1"
   }
 }
